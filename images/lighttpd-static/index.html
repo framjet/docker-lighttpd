@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>framjet/lighttpd-static - Docker Image</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 3rem;
+      max-width: 600px;
+      width: 90%;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transform: translateY(0);
+      transition: transform 0.3s ease;
+    }
+
+    .container:hover {
+      transform: translateY(-5px);
+    }
+
+    .logo {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+      background: linear-gradient(45deg, #2d3748, #4a5568);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      color: #666;
+      margin-bottom: 2rem;
+      font-weight: 300;
+    }
+
+    .description {
+      font-size: 1rem;
+      color: #555;
+      margin-bottom: 2rem;
+      text-align: left;
+    }
+
+    .features {
+      background: #f8f9fa;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 2rem 0;
+      text-align: left;
+    }
+
+    .features h3 {
+      color: #333;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .features ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .features li {
+      padding: 0.5rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+
+    .features li::before {
+      content: "⚡";
+      position: absolute;
+      left: 0;
+      color: #4a5568;
+      font-weight: bold;
+    }
+
+    .optimization {
+      background: #e6fffa;
+      border: 2px solid #38b2ac;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      text-align: left;
+    }
+
+    .optimization h4 {
+      color: #2c7a7b;
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+
+    .optimization p {
+      color: #2d3748;
+      font-size: 0.9rem;
+      margin: 0;
+    }
+
+    .links {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+
+    .btn {
+      padding: 0.8rem 1.5rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+    }
+
+    .btn-primary {
+      background: linear-gradient(45deg, #2d3748, #4a5568);
+      color: white;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: #2d3748;
+      border-color: #2d3748;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .status {
+      background: #dcfce7;
+      color: #166534;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      display: inline-block;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .footer {
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 1px solid #eee;
+      color: #888;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 2rem;
+        margin: 1rem;
+      }
+
+      .logo {
+        font-size: 2rem;
+      }
+
+      .links {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="status">⚡ Ultra-Fast Static Server</div>
+
+  <div class="logo">framjet/lighttpd-static</div>
+  <div class="subtitle">Minimal Static File Server Docker Image</div>
+
+  <div class="description">
+    <p>Welcome! This is the default index page for the <strong>framjet/lighttpd-static</strong> Docker image. This ultra-minimal web server is stripped down to serve static files only, with maximum performance and minimal footprint.</p>
+  </div>
+
+  <div class="optimization">
+    <h4>🎯 Optimized for Static Content</h4>
+    <p>All unnecessary modules removed except mod_status. Only essential libraries kept for maximum performance and minimal attack surface.</p>
+  </div>
+
+  <div class="features">
+    <h3>Static-Only Features</h3>
+    <ul>
+      <li>Ultra-minimal Lighttpd server (static files only)</li>
+      <li>Serves static files from <code>/app</code> directory (HTTP_ROOT)</li>
+      <li>Only mod_status module included for health checks</li>
+      <li>All dynamic modules removed (CGI, SSL, proxy, etc.)</li>
+      <li>Reduced attack surface and memory footprint</li>
+      <li>Health check endpoint at <code>/status</code></li>
+      <li>Docker/Kubernetes liveness probe ready</li>
+      <li>Custom entrypoint scripts support: <code>/docker-entrypoint.d/*.{sh,envsh}</code></li>
+      <li>Built-in wait4x support via <code>WAIT_FOR_*</code> and <code>WAIT_CMD_FOR_*</code> env vars</li>
+      <li>Maximum performance for static content delivery</li>
+    </ul>
+  </div>
+
+  <div class="links">
+    <a href="https://github.com/framjet/docker-lighttpd/tree/main/images/lighttpd-static" class="btn btn-primary" target="_blank">
+      📦 View Repository
+    </a>
+    <a href="https://hub.docker.com/r/framjet/lighttpd-static" class="btn btn-secondary" target="_blank">
+      🐳 Docker Hub
+    </a>
+    <a href="/status" class="btn btn-secondary">
+      ❤️ Health Check
+    </a>
+  </div>
+
+  <div class="footer">
+    <p><strong>Static-Only Configuration:</strong></p>
+    <p>• Document root: <code>/app</code> (HTTP_ROOT environment variable)</p>
+    <p>• Health endpoint: <code>/status</code> (for Docker/K8s liveness probes)</p>
+    <p>• Custom scripts: <code>/docker-entrypoint.d/*.{sh,envsh}</code></p>
+    <p>• Service dependencies: <code>WAIT_FOR_*</code> and <code>WAIT_CMD_FOR_*</code> env vars (wait4x)</p>
+    <p>• Replace this file at <code>/app/index.html</code> with your static content</p>
+    <p>• No dynamic content support (CGI, SSL, proxy modules removed)</p>
+  </div>
+</div>
+</body>
+</html>

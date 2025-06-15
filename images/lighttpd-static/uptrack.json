@@ -1,0 +1,24 @@
+{
+  "$schema": "https://github.com/framjet/docker-uptrack-action/blob/main/schema.json",
+  "variants": [
+    {
+      "namespace": "framjet",
+      "name": "lighttpd-static",
+      "platforms": [
+        "linux/amd64",
+        "linux/arm64"
+      ],
+      "upstream": {
+        "name": "alpine"
+      },
+      "filters": {
+        "tags": [
+          "latest"
+        ]
+      },
+      "buildArgs": {
+        "WAIT4X_VERSION": "latest"
+      }
+    }
+  ]
+}

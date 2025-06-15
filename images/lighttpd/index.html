@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>framjet/lighttpd - Docker Image</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 3rem;
+      max-width: 600px;
+      width: 90%;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transform: translateY(0);
+      transition: transform 0.3s ease;
+    }
+
+    .container:hover {
+      transform: translateY(-5px);
+    }
+
+    .logo {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+      background: linear-gradient(45deg, #667eea, #764ba2);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      color: #666;
+      margin-bottom: 2rem;
+      font-weight: 300;
+    }
+
+    .description {
+      font-size: 1rem;
+      color: #555;
+      margin-bottom: 2rem;
+      text-align: left;
+    }
+
+    .features {
+      background: #f8f9fa;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 2rem 0;
+      text-align: left;
+    }
+
+    .features h3 {
+      color: #333;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .features ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .features li {
+      padding: 0.5rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+
+    .features li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #667eea;
+      font-weight: bold;
+    }
+
+    .links {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+
+    .btn {
+      padding: 0.8rem 1.5rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+    }
+
+    .btn-primary {
+      background: linear-gradient(45deg, #667eea, #764ba2);
+      color: white;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: #667eea;
+      border-color: #667eea;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .status {
+      background: #e8f5e8;
+      color: #2d5a2d;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      display: inline-block;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .footer {
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 1px solid #eee;
+      color: #888;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 2rem;
+        margin: 1rem;
+      }
+
+      .logo {
+        font-size: 2rem;
+      }
+
+      .links {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="status">🚀 Server Running</div>
+
+  <div class="logo">framjet/lighttpd</div>
+  <div class="subtitle">Lightweight HTTP Server Docker Image</div>
+
+  <div class="description">
+    <p>Welcome! This is the default index page for the <strong>framjet/lighttpd</strong> Docker base image. This lightweight web server is preconfigured to serve static files from the <code>/app</code> directory and is ready for customization.</p>
+  </div>
+
+  <div class="features">
+    <h3>Base Image Features</h3>
+    <ul>
+      <li>Lightweight Lighttpd web server</li>
+      <li>Serves static files from <code>/app</code> directory (HTTP_ROOT)</li>
+      <li>Default MIME types configuration included</li>
+      <li>Health check endpoint at <code>/status</code></li>
+      <li>Docker/Kubernetes liveness probe ready</li>
+      <li>Custom entrypoint scripts support: <code>/docker-entrypoint.d/*.{sh,envsh}</code></li>
+      <li>Built-in wait4x support via <code>WAIT_FOR_*</code> and <code>WAIT_CMD_FOR_*</code> env vars</li>
+      <li>Optimized for static content serving</li>
+      <li>Low memory footprint and high performance</li>
+    </ul>
+  </div>
+
+  <div class="links">
+    <a href="https://github.com/framjet/docker-lighttpd/tree/main/images/lighttpd" class="btn btn-primary" target="_blank">
+      📦 View Repository
+    </a>
+    <a href="https://hub.docker.com/r/framjet/lighttpd" class="btn btn-secondary" target="_blank">
+      🐳 Docker Hub
+    </a>
+    <a href="/status" class="btn btn-secondary">
+      ❤️ Health Check
+    </a>
+  </div>
+
+  <div class="footer">
+    <p><strong>Base Image Configuration:</strong></p>
+    <p>• Document root: <code>/app</code> (HTTP_ROOT environment variable)</p>
+    <p>• Health endpoint: <code>/status</code> (for Docker/K8s liveness probes)</p>
+    <p>• Custom scripts: <code>/docker-entrypoint.d/*.{sh,envsh}</code></p>
+    <p>• Service dependencies: <code>WAIT_FOR_*</code> and <code>WAIT_CMD_FOR_*</code> env vars (wait4x)</p>
+    <p>• Replace this file at <code>/app/index.html</code> with your content</p>
+    <p>• Customize configuration files as needed for production use</p>
+  </div>
+</div>
+</body>
+</html>
