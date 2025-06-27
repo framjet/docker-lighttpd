@@ -9,15 +9,13 @@
         "linux/arm64"
       ],
       "upstream": {
+        "namespace": "framjet",
         "name": "alpine"
       },
       "filters": {
         "tags": [
           "latest"
         ]
-      },
-      "buildArgs": {
-        "WAIT4X_VERSION": "latest"
       }
     }
   ]

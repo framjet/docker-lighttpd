@@ -7,7 +7,7 @@ Lightweight, high-performance Lighttpd web server Docker image based on Alpine L
 
 ## 🚀 Features
 
-- **🪶 Lightweight**: Built on Alpine Linux (~14MB)
+- **🪶 Lightweight**: Built on FramJet Alpine Linux base image (~19MB)
 - **⚡ High Performance**: Optimized Lighttpd 1.4.79 configuration
 - **🔧 Full Feature Set**: All Lighttpd modules available
 - **🐳 Container-Ready**: Docker/Kubernetes optimized
